@@ -31,7 +31,7 @@ var shpwrite = require('shp-write');
 
 // (optional) set names for feature types and zipped folder
 var options = {
-    folder: 'myshapes',
+    folder: 'myshapes', // null means root (null is not undefined!!!)
     types: {
         point: 'mypoints',
         polygon: 'mypolygons',

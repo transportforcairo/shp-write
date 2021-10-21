@@ -6,7 +6,9 @@ var write = require('./write'),
 module.exports = function(gj, options, stream = false) {
 
     var zip = new JSZip(),
-        layers = zip.folder(options && options.folder ? options.folder : 'layers');
+        layers = options && options.folder === null
+          ? zip
+          : zip.folder(options && options.folder ? options.folder : 'layers');
 
     [geojson.point(gj), geojson.line(gj), geojson.polygon(gj), geojson.multipolygon(gj), geojson.multiline(gj)]
         .forEach(function(l) {
@@ -19,7 +21,7 @@ module.exports = function(gj, options, stream = false) {
                 // geometries
                 l.geometries,
                 function(err, files) {
-                    var fileName = options && options.types[l.type.toLowerCase()] ? options.types[l.type.toLowerCase()] : l.type;
+                    var fileName = options && options.types && options.types[l.type.toLowerCase()] ? options.types[l.type.toLowerCase()] : l.type;
                     layers.file(fileName + '.shp', files.shp.buffer, { binary: true });
                     layers.file(fileName + '.shx', files.shx.buffer, { binary: true });
                     layers.file(fileName + '.dbf', files.dbf.buffer, { binary: true });
