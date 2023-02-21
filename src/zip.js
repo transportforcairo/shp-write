@@ -30,7 +30,7 @@ module.exports = function(gj, options, stream = false) {
 
     var generateOptions = { compression:'STORE' };
 
-    if (!process.browser) {
+    if ('process' in window && !process.browser) {
       generateOptions.type = 'nodebuffer';
     }
     if (stream) return zip.generateNodeStream({...generateOptions,streamFiles:true});
