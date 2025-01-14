@@ -1,6 +1,6 @@
 {
   "name": "shp-write",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "write shapefiles from pure javascript",
   "main": "index.js",
   "scripts": {
@@ -34,8 +34,8 @@
     "url": "https://github.com/mapbox/shp-write/issues"
   },
   "dependencies": {
-    "dbf": "0.1.4",
-    "jszip": "3.6.0"
+    "dbf": "0.2.0",
+    "jszip": "3.10.1"
   },
   "devDependencies": {
     "browserify": "^13.0.0",
