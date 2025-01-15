@@ -3,7 +3,6 @@ var types = require('./types'),
     prj = require('./prj'),
     ext = require('./extent'),
     getFields = require('./fields'),
-    assert = require('assert'),
     pointWriter = require('./points'),
     polyWriter = require('./poly');
 
